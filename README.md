@@ -476,6 +476,26 @@ guide is meant to be able to change with it.
   end
   ```
 
+* <a name="use-correct-string-type"></a>
+  Use single quotes as a default for string. Use double quotes when there is
+  interpolation and either double quotes OR single quotes. Use [percent notation](http://en.wikibooks.org/wiki/Ruby_Programming/Syntax/Literals#The_.25_Notation)
+  when there is interpolation, single quotes, AND double quotes.
+<sup>[[link](#interpolation-over-concatenation)]</sup>
+
+  ```ruby
+  # bad
+  value1 = "test"
+  value2 = %(isn't this the best)
+  value3 = %(isn't this the #{description})
+  value4 = "\"She isn't my #{noun}\", he said."
+
+  # good
+  value1 = 'test'
+  value2 = "isn't is the best"
+  value3 = "isn't this the #{description}"
+  value4 = %("She isn't my #{noun}", he said.)
+  ```
+
 ## Naming
   * <a name="lower-snake-case"></a>
     Use lower case snake_case for methods.
