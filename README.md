@@ -226,6 +226,35 @@ guide is meant to be able to change with it.
   end
   ```
 
+* <a name="do-not-align-operators-like-equals"></a>
+  Do not align operators like equals(`=`). If you have several assignments in
+  a row, it could be a sign there is something wrong.
+<sup>[[link](#do-not-align-operators-like-equals)]</sup>
+
+  ```Ruby
+  # bad
+  def something
+    foo     = bar
+    humdrum = an_operation
+    pi      = 3.14159265359
+    vi      = "smells"
+  end
+
+  # okish - too many assignments could be a smell
+  def something
+    foo = value
+    humdrum = an_operation
+    pi = 3.14159265359
+    sublime = "awesome"
+  end
+
+  # good
+  def something
+    foo = value
+    humdrum = an_operation
+  end
+  ```
+
 * <a name="rdoc-style-api-documentation"></a>
   Use RDoc and its conventions for API documentation. Don't put an empty line
   between the comment block and the def.
