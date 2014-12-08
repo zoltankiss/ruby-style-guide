@@ -476,6 +476,18 @@ guide is meant to be able to change with it.
   end
   ```
 
+* <a name="interpolation-over-concatenation"></a>
+  Always favor string interpolation over concatenation.
+<sup>[[link](#interpolation-over-concatenation)]</sup>
+
+  ```ruby
+  # bad
+  full_name = first_name + ', ' + last_name
+
+  # good
+  full_name = "#{first_name}, #{last_name}"
+  ```
+
 ## Naming
   * <a name="lower-snake-case"></a>
     Use lower case snake_case for methods.
