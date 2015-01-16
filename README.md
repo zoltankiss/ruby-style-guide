@@ -263,6 +263,47 @@ problem. A known exception to this rule is in a Gems gemspec file.
   Keep lines fewer than 80 characters.
 <sup>[[link](#fewer-than-80-characters)]</sup>
 
+* <a name="no-double-indent"></a>
+    Align the parameters of a method call if they span more than one
+    line. When aligning parameters is not appropriate due to line-length
+    constraints, single indent for the lines after the first is also
+    acceptable.
+<sup>[[link](#no-double-indent)]</sup>
+
+  ```Ruby
+  # starting point (line is too long)
+  def send_mail(source)
+    Mailer.deliver(to: 'bob@example.com', from: 'us@example.com', subject: 'Important message', body: source.text)
+  end
+
+  # bad (double indent)
+  def send_mail(source)
+    Mailer.deliver(
+        to: 'bob@example.com',
+        from: 'us@example.com',
+        subject: 'Important message',
+        body: source.text)
+  end
+
+  # good
+  def send_mail(source)
+    Mailer.deliver(to: 'bob@example.com',
+                   from: 'us@example.com',
+                   subject: 'Important message',
+                   body: source.text)
+  end
+
+  # good (normal indent)
+  def send_mail(source)
+    Mailer.deliver(
+      to: 'bob@example.com',
+      from: 'us@example.com',
+      subject: 'Important message',
+      body: source.text
+    )
+  end
+  ```
+
 * <a name="avoid-trailing-whitespace"></a>
   Avoid trailing whitespace.
 <sup>[[link](#avoid-trailing-whitespace)]</sup>
