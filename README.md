@@ -553,6 +553,28 @@ problem. A known exception to this rule is in a Gems gemspec file.
   full_name = "#{first_name}, #{last_name}"
   ```
 
+* <a name="use-correct-string-type"></a>
+  Use single quotes as a default for string. Use double quotes when there is
+  interpolation and either double quotes OR single quotes, or there are
+  special characters that need to be escaped. Use [percent notation](http://en.wikibooks.org/wiki/Ruby_Programming/Syntax/Literals#The_.25_Notation) when
+  there is interpolation, single quotes, AND double quotes.
+
+  ```ruby
+  # bad
+  value1 = "test"
+  value2 = %(isn't this the best)
+  value3 = %(isn't this the #{description})
+  value4 = "\"She isn't my #{noun}\", he said."
+  value5 = 'hello\nworld'
+
+  # good
+  value1 = 'test'
+  value2 = "isn't is the best"
+  value3 = "isn't this the #{description}"
+  value4 = %("She isn't my #{noun}", he said.)
+  value5 = "hello\nworld"
+  ```
+
 ## Naming
   * <a name="lower-snake-case"></a>
     Use lower case snake_case for methods.
@@ -619,4 +641,3 @@ Open tickets or send pull requests with improvements. Please write [good commit 
 Inspiration and some examples were taken from the following:
 
 [bbatsov's ruby style guide](https://github.com/bbatsov/ruby-style-guide)
-
